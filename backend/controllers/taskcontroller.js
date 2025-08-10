@@ -11,8 +11,7 @@ const getTasks = async (
 };
 
 const addTask = async (
-  req,
-  res) => {
+  req,res) => {
   const { title, description, deadline } = req.body;
   try {
     const task = await Task.create({ userId: req.user.id, title, description, deadline });
