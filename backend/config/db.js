@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb+srv://user1:Daswani123@cluster0.hhvl7hk.mongodb.net/taskmanager?retryWrites=true&w=majority&appName=Cluster0");  // Remove deprecated options
+    await mongoose.connect(process.env.MONGO_URI);  // Remove deprecated options
     console.log("MongoDB connected successfully");
   } catch (error) {
     console.error("MongoDB connection error:", error.message);
