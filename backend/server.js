@@ -14,11 +14,14 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
 
+app.use('/api/events', require('./routes/eventRoutes'));
+app.use('/api/assignments', require('./routes/assignmentRoutes'));
+
 // Export the app object for testing
 if (require.main === module) {
     connectDB();
     // If the file is run directly, start the server
-    const PORT = 5001;
+    const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   }
 
